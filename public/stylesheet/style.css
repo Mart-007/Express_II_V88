@@ -1,0 +1,10 @@
+body{
+    background-color: #121212;
+    color: rgb(218, 214, 214);
+}
+h1{
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: center;
+    background-color: rgba(229, 231, 229, 0.133);
+}
