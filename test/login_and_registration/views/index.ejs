@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+		<style>
+			.forms {
+				display: flex;
+			}
+			.message {
+				color: #fff;
+			}
+			.message {
+				font-weight: bold;
+			}
+			ul:not(.browser-default) > li {
+				list-style-type: disc !important;
+			}
+		</style>
+
+		<title>Registration</title>
+	</head>
+	<body>
+
+		<div class="container mt-5">
+			<div class="row forms">
+				<form class="col card col-5 m-3 p-3" action="/create" method="POST">
+					<div class="row">
+						<div class="col">
+							<h4>Registration Form</h4>
+						</div>
+
+						<% if (message) { %>
+						<div class="row <%= (message.title == 'success') ? 'text-success' : 'text-danger' %> message">
+							<p><%=message.content%></p>
+						</div>
+						<% } %>
+
+						<!-- for form errors -->
+						<%if (form_errors && form_errors.type === "register") { %>
+						<!-- type -->
+						<h5 class="text-danger">Please fix the following errors:</h5>
+						<div class="row ms-5 text-danger">
+							<ul>
+								<% for (let error in form_errors.errors) { %>
+								<li><%= form_errors.errors[error]; %></li>
+								<% } %>
+							</ul>
+						</div>
+						<% } %>
+					</div>
+					<div class="row">
+						<div class="col mt-3">
+							<label for="firstname">Firstname</label>
+							<input placeholder="" id="firstname" type="text" class="validate form-control" name="firstname" />
+						</div>
+					</div>
+
+					<div class="row mt-3">
+						<div class="col">
+							<label for="lastname">Lastname</label>
+							<input placeholder="" id="lastname" type="text" class="validate form-control" name="lastname" />
+						</div>
+					</div>
+
+					<div class="row mt-3">
+						<div class="col">
+							<label for="email">Email</label>
+							<input placeholder="" id="email" type="text" class="validate form-control" name="email" />
+						</div>
+					</div>
+
+					<div class="row mt-3">
+						<div class="col">
+							<label for="password">Password</label>
+							<input placeholder="" id="password" type="password" class="validate form-control" name="password" />
+						</div>
+					</div>
+
+					<div class="row mt-3">
+						<div class="col">
+							<label for="confirm_password">Confirm Password</label>
+							<input placeholder="" id="confirm_password" type="password" class="validate form-control" name="confirm_password" />
+						</div>
+					</div>
+
+					<div class="row mt-3">
+						<div class="col">
+							<button class="btn btn-primary my-3 float-end" type="submit">
+								Register
+							</button>
+						</div>
+					</div>
+				</form>
+
+				<form class="col card col-5 m-3 p-3" id="login" action="/login_process" method="POST">
+					<div class="row">
+						<div class="col">
+							<h4>Login Form</h4>
+						</div>
+
+						<!-- for form errors -->
+						<%if (form_errors && form_errors.type === "login") { %>
+						<!-- type -->
+						<h5 class="text-danger">Please fix the following errors:</h5>
+						<div class="row ms-5 text-danger">
+							<ul>
+								<% for (let error in form_errors.errors) { %>
+								<li><%= form_errors.errors[error]; %></li>
+								<% } %>
+							</ul>
+						</div>
+						<% } %>
+					</div>
+					<div class="row mt-3">
+						<div class="col">
+							<label for="email">Email</label>
+							<input placeholder="" id="email" type="text" class="form-control" name="email" />
+						</div>
+					</div>
+
+					<div class="row mt-3">
+						<div class="col">
+							<label for="password">Password</label>
+							<input placeholder="" id="password" type="password" class="form-control" name="password" />
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col">
+							<button class="btn btn-primary my-3 float-end" type="submit">
+								Login
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
