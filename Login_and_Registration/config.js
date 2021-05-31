@@ -4,7 +4,7 @@ import mysql from 'mysql';
 const dbConnection = mysql.createConnection({
     host: 'localhots',
     user: 'root',
-    paswword: 1234,
+    paswword: 'root',
     database: 'login_reg',
 });
 
