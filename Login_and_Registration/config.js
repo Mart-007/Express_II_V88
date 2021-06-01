@@ -1,5 +1,5 @@
 //don't forget to export this module
-import mysql from 'mysql';
+const mysql =  require('mysql');
 
 const dbConnection = mysql.createConnection({
     host: 'localhots',

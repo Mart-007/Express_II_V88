@@ -8,7 +8,13 @@
 </head>
 <body>
     <div class="container">
-        
+        <h1>Welcome <%=user.first_name%>!</h1>
+        <a href="/logoff" class="logoff">Log Off</a>
+        <div class="content">
+            <p><span>First Name:</span> <%= user.first_name%> </p>
+            <p><span>Last Name:</span> <%= user.last_name%> </p>
+            <p><span>Email Address:</span> <%= email%> </p>
+        </div>
     </div>
 </body>
 </html>

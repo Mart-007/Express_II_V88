@@ -16,12 +16,11 @@ app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
 //test view lang po ito
-app.get('/', (req, res) => {
-    res.render('index');
-})
+// app.get('/', (req, res) => {
+//     res.render('index');
+// })
 
-//Ito po nagdadala lahat ng pasanin
-// require("./routes.js")(app);
+require("./routes")(app);
 
 app.listen(7000, () => {
     console.log("Server running on port 7000");
