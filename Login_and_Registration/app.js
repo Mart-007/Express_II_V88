@@ -15,11 +15,12 @@ app.use(express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 
-//test view
+//test view lang po ito
 app.get('/', (req, res) => {
     res.render('index');
 })
 
+//Ito po nagdadala lahat ng pasanin
 // require("./routes.js")(app);
 
 app.listen(7000, () => {
