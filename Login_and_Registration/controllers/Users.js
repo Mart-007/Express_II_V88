@@ -86,4 +86,4 @@ class Users {
     }
 }
 
-module.expors = new Users();
+module.exports = new Users();

@@ -12,6 +12,16 @@
         <div class="login-content">
             <h1>Login</h1>
             <form action="/login" method="POST">
+                <% if(form_errors && form_errors.type === "login"){ %>
+                    <h5 class="message-failed">Please fix the following errors</h5>
+                    <div class="message-failed">
+                        <ul>
+                            <%for(let error in form_errors.errors){ %>
+                            <li><%= form_errors.errors[error]; %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% } %>
                 Email Address: <input type="text" name="email" class="login-email"><br>
                 Password:<input type="password" name="password" class="login-password"><br>
                 <input type="submit" class="login-btn" value="Login">
@@ -20,6 +30,22 @@
         <div class="register-content">
             <h1>Register</h1>
             <form action="/register" method="POST">
+                <% if(message){ %>
+                    <div class="<%= (message.title === 'success') ? 'message-success' : 'message-failed'%> message ">
+                        <p><%= message.content %></p>
+                    </div>
+                <% } %>
+
+                <% if(form_errors && form_errors.type = "register"){ %>
+                    <h5 class="message-failed">Please fix the following errors</h5>
+                    <div class="messge-failed">
+                        <ul>
+                            <% for(let error in form_errors.errors){ %>
+                            <li><%=form_errors.errors[error]; %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                <% } %>
                 First Name:<input type="text" name="fname" class="fname"><br>
                 Last Name:<input type="text" name="lname" class="lname"><br>
                 Email Address:<input type="email" name="email" class="register-email"><br>
